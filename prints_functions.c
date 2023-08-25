@@ -61,7 +61,7 @@ int print_string(va_list list, params_t *params)
 	(void)params;
 	switch ((int)(!string))
 		case 1:
-			string = NULL_STRING;
+			string = NULLSTRING;
 
 	j = p = _strlen(string);
 	if (params->precision < p)
@@ -118,7 +118,7 @@ int print_S(va_list list, params_t *params)
 	int sum = 0;
 
 	if ((int)(!str))
-		return (_puts(NULL_STRING));
+		return (_puts(NULLSTRING));
 	for (; *str; str++)
 	{
 		if ((*str > 0 && *str < 32) || *str >= 127)
