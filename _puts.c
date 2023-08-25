@@ -28,14 +28,14 @@ int _puts(char *string)
 int _putchar(int c)
 {
 	static int j;
-	static char buf[OUTPUT_BUF_SIZE];
+	static char buf[BUFFERSIZE];
 
-	if (c == BUF_FLUSH || j >= OUTPUT_BUF_SIZE)
+	if (c == BUFFFLUSH || j >= BUFFERSIZE)
 	{
 		write(1, buf, j);
 		j = 0;
 	}
-	if (c != BUF_FLUSH)
+	if (c != BUFFFLUSH)
 	{
 		buf[j++] = c;
 	}
