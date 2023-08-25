@@ -1,13 +1,13 @@
 #include "main.h"
 
 /**
- * print_hex - prints unsigned hex in lower
+ * print_hex_LOW - prints unsigned hex in lower
  * @list: pointer
  * @params: the parameters struct
  *
  * Return: bytes to be printed
  */
-int print_hex(va_list list, params_t *params)
+int print_hex_LOW(va_list list, params_t *params)
 {
 	unsigned long l;
 	int x = 0;
@@ -20,7 +20,7 @@ int print_hex(va_list list, params_t *params)
 	else
 		l = (unsigned int)va_arg(list, unsigned int);
 
-	string = convert(l, 16, CONVERT_UNSIGNED | CONVERT_LOWERCASE, params);
+	string = convert(l, 16, CONVERT_UNSIGNED | CONVERT_TO_LOWER, params);
 	if (params->hashtag_flag && l)
 	{
 		*--string = 'x';
@@ -31,7 +31,7 @@ int print_hex(va_list list, params_t *params)
 }
 
 /**
- * print_HEX - prints unsigned hex in upper
+ * print_hex_UP - prints unsigned hex in upper
  *
  * @list: pointer
  *
@@ -39,7 +39,7 @@ int print_hex(va_list list, params_t *params)
  *
  * Return: bytes printed
  */
-int print_HEX(va_list list, params_t *params)
+int print_hex_UP(va_list list, params_t *params)
 {
 	unsigned long l;
 	int x = 0;
