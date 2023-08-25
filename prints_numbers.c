@@ -67,11 +67,11 @@ int print_number(char *string, params_t *params)
 
 	if (!params->minus_flag)
 	{
-		return (print_number_right_shift(string, params));
+		return (print_number_right(string, params));
 	}
 	else
 	{
-		return (print_number_left_shift(string, params));
+		return (print_number_left(string, params));
 	}
 }
 
