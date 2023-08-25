@@ -7,15 +7,15 @@
 #include <limits.h>
 #include <stdarg.h>
 
-#define OUTPUT_BUF_SIZE 1024
+#define BUFFERSIZE 1024
+#define BUFFFLUSH -1
 
-#define BUF_FLUSH -1
 
-#define NULL_STRING "(null)"
+#define NULLSTRING "(null)"
 
-#define PARAMS_INIT {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+#define PARAMSINIT {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 
-#define CONVERT_LOWERCASE	1
+#define CONVERT_TO_LOWER	1
 #define CONVERT_UNSIGNED	2
 
 /**
@@ -45,17 +45,17 @@
 typedef struct parameters
 {
 	unsigned int unsign		: 1;
+	unsigned int zero_flag		: 1;
 	unsigned int plus_flag		: 1;
+	unsigned int minus_flag		: 1;
 	unsigned int space_flag		: 1;
 	unsigned int hashtag_flag	: 1;
-	unsigned int zero_flag		: 1;
-	unsigned int minus_flag		: 1;
 
-	unsigned int width;
 	unsigned int precision;
+	unsigned int width;
 
-	unsigned int h_modifier		: 1;
 	unsigned int l_modifier		: 1;
+	unsigned int h_modifier		: 1;
 
 } params_t;
 
@@ -102,8 +102,8 @@ char *get_width(char *sp, params_t *params, va_list list);
 
 /* convert_number.c */
 
-int print_hex(va_list list, params_t *params);
-int print_HEX(va_list list, params_t *params);
+int print_hex_LOW(va_list list, params_t *params);
+int print_hex_UP(va_list list, params_t *params);
 int print_binary(va_list list, params_t *params);
 int print_octal(va_list list, params_t *params);
 
@@ -118,8 +118,8 @@ int print_rot13(va_list list, params_t *params);
 int _isdigit(int c);
 int _strlen(char *s);
 int print_number(char *string, params_t *params);
-int print_number_right_shift(char *string, params_t *params);
-int print_number_left_shift(char *string, params_t *params);
+int print_number_right(char *string, params_t *params);
+int print_number_left(char *string, params_t *params);
 
 /* params.c */
 
