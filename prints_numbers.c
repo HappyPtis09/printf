@@ -76,7 +76,7 @@ int print_number(char *string, params_t *params)
 }
 
 /**
- * print_number_right_shift - prints a number
+ * print_number_right - prints a number
  *
  * @string: the base number string
  *
@@ -84,7 +84,7 @@ int print_number(char *string, params_t *params)
  *
  * Return: char
  */
-int print_number_right_shift(char *string, params_t *params)
+int print_number_right(char *string, params_t *params)
 {
 	unsigned int n = 0, n1, n2, i = _strlen(string);
 	char pad_char = ' ';
@@ -120,7 +120,7 @@ int print_number_right_shift(char *string, params_t *params)
 }
 
 /**
- * print_number_left_shift - prints a number
+ * print_number_left - prints a number
  *
  * @string: the base string
  *
@@ -128,7 +128,7 @@ int print_number_right_shift(char *string, params_t *params)
  *
  * Return: char
  */
-int print_number_left_shift(char *string, params_t *params)
+int print_number_left(char *string, params_t *params)
 {
 	unsigned int n = 0, n1, n2, i = _strlen(string);
 	char pad_char = ' ';
