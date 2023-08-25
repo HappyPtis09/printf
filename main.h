@@ -3,13 +3,13 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdarg.h>
 #include <unistd.h>
 #include <limits.h>
+#include <stdarg.h>
 
 #define OUTPUT_BUF_SIZE 1024
-#define BUF_FLUSH -1
 
+#define BUF_FLUSH -1
 
 #define NULL_STRING "(null)"
 
@@ -23,28 +23,28 @@
  *
  * @unsign: flag
  *
- * @plus_flag: on if plus_flag specified
+ * @plus_flag: plus_flag specified
  *
- * @space_flag: on if hashtag_flag specified
+ * @space_flag: hashtag_flag specified
  *
- * @hashtag_flag: on if _flag specified
+ * @hashtag_flag: _flag specified
  *
- * @zero_flag: on if _flag specified
+ * @zero_flag:  _flag specified
  *
- * @minus_flag: on if _flag specified
+ * @minus_flag:  _flag specified
  *
- * @width: field width specified
+ * @width: width specified
  *
- * @precision: field precision specified
+ * @precision: precision specified
  *
- * @h_modifier: on if h_modifier is specified
+ * @h_modifier: h_modifier is specified
  *
- * @l_modifier: on if l_modifier is specified
+ * @l_modifier: l_modifier is specified
  *
  */
 typedef struct parameters
 {
-	unsigned int unsign			: 1;
+	unsigned int unsign		: 1;
 	unsigned int plus_flag		: 1;
 	unsigned int space_flag		: 1;
 	unsigned int hashtag_flag	: 1;
@@ -56,6 +56,7 @@ typedef struct parameters
 
 	unsigned int h_modifier		: 1;
 	unsigned int l_modifier		: 1;
+
 } params_t;
 
 /**
@@ -63,20 +64,21 @@ typedef struct parameters
  *
  * @specifier: format
  *
- * @f: The function associated
+ * @f: function
  */
 typedef struct specifier
 {
 	char *specifier;
 	int (*f)(va_list, params_t *);
+
 } specifier_t;
 
-/* _put.c module */
+/* _put.c */
 
 int _puts(char *string);
 int _putchar(int c);
 
-/* print_functions.c module */
+/* print_functions.c */
 
 int print_char(va_list list, params_t *param);
 int print_int(va_list list, params_t *param);
@@ -84,13 +86,13 @@ int print_string(va_list list, params_t *params);
 int print_percent(va_list list, params_t *params);
 int print_S(va_list list, params_t *params);
 
-/* number.c module */
+/* number.c */
 
 char *convert(long int numm, int base, int flag, params_t *params);
 int print_unsigned(va_list list, params_t *params);
 int print_address(va_list list, params_t *params);
 
-/* specifier.c module */
+/* specifier.c */
 
 int (*get_specifier(char *sp))(va_list list, params_t *params);
 int get_print_func(char *sp, va_list list, params_t *params);
@@ -98,20 +100,20 @@ int get_flag(char *sp, params_t *params);
 int get_modifier(char *sp, params_t *params);
 char *get_width(char *sp, params_t *params, va_list list);
 
-/* convert_number.c module */
+/* convert_number.c */
 
 int print_hex(va_list list, params_t *params);
 int print_HEX(va_list list, params_t *params);
 int print_binary(va_list list, params_t *params);
 int print_octal(va_list list, params_t *params);
 
-/* simple_printers.c module */
+/* simple_printers.c */
 
 int print_from_to(char *start, char *stop, char *except);
 int print_rev(va_list list, params_t *params);
 int print_rot13(va_list list, params_t *params);
 
-/* print_number.c module */
+/* print_number.c */
 
 int _isdigit(int c);
 int _strlen(char *s);
@@ -119,7 +121,7 @@ int print_number(char *string, params_t *params);
 int print_number_right_shift(char *string, params_t *params);
 int print_number_left_shift(char *string, params_t *params);
 
-/* params.c module */
+/* params.c */
 
 void init_params(params_t *params, va_list list);
 
@@ -127,7 +129,7 @@ void init_params(params_t *params, va_list list);
 
 char *get_precision(char *f, params_t *params, va_list list);
 
-/* _prinf.c module */
+/* _prinf.c */
 
 int _printf(const char *format, ...);
 
