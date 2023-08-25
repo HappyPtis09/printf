@@ -27,7 +27,7 @@ char *convert(long int numm, int base, int flag, params_t *params)
 		sign = '-';
 
 	}
-	array = flag & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
+	array = flag & CONVERT_TO_LOWER ? "0123456789abcdef" : "0123456789ABCDEF";
 	pntr = &buffer[49];
 	*pntr = '\0';
 
@@ -81,7 +81,7 @@ int print_address(va_list list, params_t *params)
 	if (!n)
 		return (_puts("(nil)"));
 
-	string = convert(n, 16, CONVERT_UNSIGNED | CONVERT_LOWERCASE, params);
+	string = convert(n, 16, CONVERT_UNSIGNED | CONVERT_TO_LOWER, params);
 	*--string = 'x';
 	*--string = '0';
 	return (print_number(string, params));
